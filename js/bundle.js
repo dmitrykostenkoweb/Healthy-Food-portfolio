@@ -549,6 +549,56 @@ function parallax(event) {
 
 /***/ }),
 
+/***/ "./js/modules/scrollup.js":
+/*!********************************!*\
+  !*** ./js/modules/scrollup.js ***!
+  \********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+function scrollUp() {
+    const offset = 100;
+    const scrollUp = document.querySelector(".scroll-up");
+    const scrollUpSvgPath = document.querySelector(".scroll-up__svg__path");
+    const pathLength = scrollUpSvgPath.getTotalLength();
+    
+    scrollUpSvgPath.style.strokeDasharray = `${pathLength} ${pathLength}`;
+    scrollUpSvgPath.style.transition = "stroke-dashoffset 20ms";
+    const getTop = () => window.pageYOffset || document.documentElement.scrollTop;
+    
+    // updateDashOffset
+    const updateDashOffset = () => {
+      const height = document.documentElement.scrollHeight - window.innerHeight;
+      const dashoffset = pathLength - (getTop() * pathLength) / height;
+      scrollUpSvgPath.style.strokeDashoffset = dashoffset;
+    };
+    //onScroll
+    window.addEventListener("scroll", () => {
+      updateDashOffset();
+    
+      if (getTop() > offset) {
+        scrollUp.classList.add("scroll-up--active");
+      } else {
+        scrollUp.classList.remove("scroll-up--active");
+      }
+    });
+    //click
+    scrollUp.addEventListener("click", () => {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    }); 
+}
+scrollUp();
+
+
+/* harmony default export */ __webpack_exports__["default"] = (scrollUp);
+
+/***/ }),
+
 /***/ "./js/modules/slider.js":
 /*!******************************!*\
   !*** ./js/modules/slider.js ***!
@@ -809,6 +859,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_timer__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modules/timer */ "./js/modules/timer.js");
 /* harmony import */ var _modules_parallax__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./modules/parallax */ "./js/modules/parallax.js");
 /* harmony import */ var _modules_burger__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./modules/burger */ "./js/modules/burger.js");
+/* harmony import */ var _modules_scrollup__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./modules/scrollup */ "./js/modules/scrollup.js");
+
 
 
 
@@ -823,7 +875,7 @@ __webpack_require__.r(__webpack_exports__);
 window.addEventListener("DOMContentLoaded", function () {
   const modalTimerId = setTimeout(
     () => Object(_modules_modal__WEBPACK_IMPORTED_MODULE_4__["openModal"])(".modal", modalTimerId),
-    3000000
+    20000
   );
 
   

@@ -7,12 +7,13 @@ import slider from "./modules/slider";
 import timer from "./modules/timer";
 import parallax from './modules/parallax';
 import showBurger from './modules/burger';
+import scrollUp from './modules/scrollup';
 import { openModal } from "./modules/modal";
 
 window.addEventListener("DOMContentLoaded", function () {
   const modalTimerId = setTimeout(
     () => openModal(".modal", modalTimerId),
-    3000000
+    20000
   );
 
   
