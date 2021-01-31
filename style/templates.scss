@@ -1,0 +1,195 @@
+@import "mixins";
+
+.content-wrapper {
+  max-width: 1440px;
+  margin: 0 auto;
+  overflow: hidden;
+  padding: 2%;
+}
+section,
+footer {
+  margin: 10vh auto 10vh auto;
+}
+//////////////////////////////
+//////////////////////////////
+//////////////////////////////
+//////////////////////////////
+// margin
+.mt-20 {
+  margin-top: 20px;
+}
+.mt-50 {
+  margin-top: 50px;
+}
+//////////////////////////////
+//////////////////////////////
+//////////////////////////////
+//////////////////////////////
+// btns
+.btn {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: #59aaf1;
+  color: white;
+  font-family: Montserrat;
+  font-weight: 700;
+  border-radius: 30px;
+  border: 1px solid #acacac;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  border: none;
+  font-size: 18px;
+  text-align: left;
+  padding: 0 20px;
+  outline: 0;
+  transition: 0.8s;
+}
+.btn:hover {
+  box-shadow: -0px 0px 0px rgba(0, 0, 0, 0.5);
+  background-color: #fe5526;
+}
+.btn:active {
+  background-color: #59aaf1;
+  transform: scale(0.9);
+}
+@media (max-width: 1000px) {
+  .btn:hover {
+    background-color: transparent;
+  }
+}
+
+.big_btn {
+  width: 280px;
+  height: 50px;
+}
+//////////////////////////////
+//////////////////////////////
+//////////////////////////////
+//////////////////////////////
+// btn-phone
+.phone__icon {
+  transition: 0.5s all;
+}
+
+.btn-phone:hover {
+  .phone__icon {
+    animation: phone 1s infinite linear;
+  }
+}
+.btn-phone:active {
+  animation: none;
+}
+
+@keyframes phone {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@media (max-width: 1000px) {
+  .btn-phone {
+    padding: 0;
+    background-color: transparent;
+    box-shadow: none;
+    border: none;
+    span {
+      display: none;
+    }
+  }
+  .btn-phone:hover {
+    box-shadow: none;
+  }
+  .btn-phone:active {
+    background-color: transparent;
+  }
+}
+//////////////////////////////
+//////////////////////////////
+//////////////////////////////
+//////////////////////////////
+// divider
+.divider {
+  width: 30vw;
+  height: 1px;
+  margin: 0 auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+//////////////////////////////
+//////////////////////////////
+//////////////////////////////
+//////////////////////////////
+// title
+.title {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  @include adaptive-font(36, 18);
+}
+
+//////////////////////////////
+//////////////////////////////
+//////////////////////////////
+//////////////////////////////
+//background
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-size: 100vw;
+  opacity: 0.95;
+  z-index: -2;
+}
+@media (max-width: 768px) {
+  .background {
+    background-size: 700px;
+  }
+}
+@media (min-width: 1440px) {
+  .background {
+    background-size: auto;
+  }
+}
+.bg-vegetables {
+  background-image: url(../img/bgs/vegitable.png);
+}
+.bg-vegetables-icons-1 {
+  background-image: url(../img/bgs/vegitable-icons.png);
+}
+
+.bg-vegetables-icons-2 {
+  background-image: url(../img/bgs/vegitable-icons_2.png);
+}
+.bg-vegetables-icons-3 {
+  background-image: url(../img/bgs/vegitable-icons_3.png);
+}
+.bg-color {
+  margin: 0 auto;
+  width: 90%;
+  height: 90%;
+  background-color: #f0f5fb;
+  z-index: -3;
+  transform: rotate(03deg);
+  animation: bg-color 20s linear infinite;
+}
+@keyframes bg-color {
+  0% {
+    transform: rotate(03deg);
+  }
+  50% {
+    transform: rotate(-03deg);
+  }
+  100% {
+    transform: rotate(03deg);
+  }
+}
